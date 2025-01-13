@@ -1,0 +1,25 @@
+{
+  "title": "Christmas One Shot",
+  "id": "world.christmas-one-shot.2024-12-22.1734888660338",
+  "system": "pf2e",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "relationships": {
+    "requires": [],
+    "systems": [],
+    "recommends": [],
+    "conflicts": [],
+    "flags": {}
+  },
+  "description": "",
+  "version": "0",
+  "size": 9040315,
+  "note": "fyaya",
+  "snapshotId": null,
+  "originalSize": 15146801,
+  "createdAt": 1734888661336,
+  "packageId": "christmas-one-shot",
+  "type": "world"
+}

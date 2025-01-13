@@ -1,0 +1,25 @@
+{
+  "title": "Nova'Serai",
+  "id": "world.nova-serai.2024-11-21.1732199262751",
+  "system": "pf2e",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "relationships": {
+    "requires": [],
+    "systems": [],
+    "recommends": [],
+    "conflicts": [],
+    "flags": {}
+  },
+  "description": "",
+  "version": "0",
+  "size": 18371679,
+  "note": "new version backup",
+  "snapshotId": null,
+  "originalSize": 30477108,
+  "createdAt": 1732199263910,
+  "packageId": "nova-serai",
+  "type": "world"
+}

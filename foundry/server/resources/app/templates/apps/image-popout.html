@@ -1,0 +1,21 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <figure class="flexcol">
+        {{#if isVideo}}
+        <video src="{{ image }}" {{#if showTitle}}aria-label="{{ title }}"{{/if}} autoplay loop muted playsinline></video>
+        {{else}}
+        <img src="{{image}}" {{#if showTitle}}alt="{{title}}"{{/if}}>
+        {{/if}}
+        {{#if caption}}<figcaption>{{caption}}</figcaption>{{/if}}
+    </figure>
+
+    {{#if editable}}
+    <div class="form-group title">
+        <input type="text" name="title" value="{{title}}"/>
+    </div>
+
+    <div class="form-group picker">
+        <file-picker name="image" type="image" value="{{image}}"></file-picker>
+        <button type="submit"><i class="fas fa-check"></i></button>
+    </div>
+    {{/if}}
+</form>

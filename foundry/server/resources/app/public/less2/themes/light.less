@@ -1,0 +1,107 @@
+.theme-light {
+  --color-text-selection: var(--color-light-1);
+  --color-text-selection-bg: var(--color-dark-6);
+
+  .application {
+    --background: url("../ui/parchment.jpg") repeat;
+    --color-text-primary: var(--color-dark-1);
+    --color-header-background: var(--color-dark-3);
+    --color-fieldset-border: var(--color-light-2);
+    --color-form-label: var(--color-dark-2);
+    --color-form-label-hover: var(--color-dark-1);
+    --color-form-hint: var(--color-dark-4);
+    --color-form-hint-hover: var(--color-dark-2);
+    --color-select-option-bg: var(--color-light-1);
+  }
+
+  /* ---------------------------------------- */
+  /*  Forms and Form Elements                 */
+  /* ---------------------------------------- */
+
+  input,
+  select {
+    --input-background-color: rgb(0 0 0 / 10%);
+    --input-border-color: var(--color-dark-6);
+    --input-text-color: var(--color-dark-2);
+    --input-placeholder-color: var(--color-dark-3);
+    --input-focus-outline-color: var(--color-warm-2);
+
+    // Focused
+    &:focus {
+      --input-text-color: var(--color-dark-1);
+    }
+
+    // Disabled
+    &:disabled {
+      --input-background-color: rgb(0 0 0 / 20%);
+      --input-border-color: transparent;
+      --input-text-color: var(--color-dark-3);
+    }
+  }
+
+  // Checkboxes
+  input[type=checkbox] {
+    --checkbox-font-weight: unset;
+    --checkbox-background-color: var(--color-dark-6);
+    --checkbox-checked-color: var(--color-warm-1);
+    --checkbox-checkmark-color: var(--color-dark-1);
+
+    &:disabled, &[readonly] {
+      --checkbox-font-weight: bold;
+      --checkbox-disabled-color: var(--color-dark-6);
+      --checkbox-checked-color: var(--color-dark-6);
+      &:checked { --checkbox-disabled-color: transparent; }
+    }
+  }
+
+  label.icon {
+    --input-background-color: rgb(0 0 0 / 10%);
+    --input-border-color: var(--color-dark-6);
+    --input-text-color: var(--color-dark-2);
+    --input-focus-outline-color: var(--color-warm-2);
+
+    &:focus-within {
+      --input-text-color: var(--color-dark-1);
+    }
+
+    &:has(> input:disabled) {
+      --input-background-color: rgb(0 0 0 / 20%);
+      --input-border-color: transparent;
+      --input-text-color: var(--color-dark-3);
+    }
+  }
+
+  // Readonly Text Input
+  input[readonly] {
+    --input-background-color: rgb(0 0 0 / 20%);
+    --input-border-color: transparent;
+    --input-text-color: var(--color-dark-3);
+  }
+
+  // Buttons
+  a.button,
+  button {
+    --button-background-color: rgba(0 0 0 / 10%);
+    --button-border-color: var(--color-dark-5);
+    --button-text-color: var(--color-dark-1);
+    --button-focus-outline-color: var(--color-warm-2);
+    --button-hover-background-color: var(--color-warm-2);
+    --button-hover-text-color: var(--color-light-1);
+
+    // Disabled
+    &:disabled {
+      --button-background-color: rgba(0 0 0 / 20%);
+      --button-border-color: transparent;
+      --button-text-color: var(--color-dark-3);
+    }
+  }
+}
+
+/* ---------------------------------------- */
+/*  Tables                                  */
+/* ---------------------------------------- */
+
+table {
+  --table-background-color: none;
+  thead, tfoot { background: var(--color-cool-5); }
+}

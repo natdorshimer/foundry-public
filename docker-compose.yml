@@ -1,0 +1,10 @@
+services:
+  foundry:
+    build:
+      context: . 
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./foundry:/app/foundry
+    restart: unless-stopped

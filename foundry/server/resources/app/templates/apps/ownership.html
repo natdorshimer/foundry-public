@@ -1,0 +1,40 @@
+<form id="permission-control">
+    <p class="notes">{{ instructions }}</p>
+    <div class="form-group">
+        <label class="checkbox">
+            {{localize "OWNERSHIP.ShowGM"}}
+            <input id="show-gm-toggle" type="checkbox" {{checked showGM}}>
+        </label>
+    </div>
+
+    <hr/>
+    <div class="form-group">
+        <label>{{ localize "OWNERSHIP.AllPlayers" }}</label>
+        <select name="default" data-dtype="Number">
+            {{selectOptions defaultLevels selected=currentDefault valueAttr="level" labelAttr="label"}}
+        </select>
+    </div>
+    <hr/>
+
+    {{#each users}}
+    <div class="form-group {{this.cssClass}}">
+        <label>
+            {{this.user.name}}
+            {{~#if this.icon}}
+            <i class="role-icon {{this.icon}}" data-tooltip="{{this.tooltip}}"></i>
+            {{/if~}}
+        </label>
+        {{#if isAuthor}}
+        <div class="author">{{localize "Author"}}</div>
+        {{else}}
+        <select name="{{this.user.id}}" data-dtype="Number">
+            {{selectOptions ../playerLevels selected=this.level valueAttr="level" labelAttr="label"}}
+        </select>
+        {{/if}}
+    </div>
+    {{/each}}
+
+    <button type="submit">
+        <i class="far fa-save"></i> {{ localize "Save Changes" }}
+    </button>
+</form>

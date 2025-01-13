@@ -1,0 +1,25 @@
+{
+  "title": "Exandria C3",
+  "id": "world.exandria-c3.2024-12-31.1735657210728",
+  "system": "pf2e",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "relationships": {
+    "requires": [],
+    "systems": [],
+    "recommends": [],
+    "conflicts": [],
+    "flags": {}
+  },
+  "description": "",
+  "version": "0",
+  "size": 13542407,
+  "note": "",
+  "snapshotId": null,
+  "originalSize": 21461532,
+  "createdAt": 1735657210844,
+  "packageId": "exandria-c3",
+  "type": "world"
+}

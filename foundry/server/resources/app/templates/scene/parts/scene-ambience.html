@@ -1,0 +1,145 @@
+<div class="tab" data-group="main" data-tab="ambience">
+    <nav class="tabs sheet-tabs secondary-tabs" data-group="ambience" aria-role="{{localize 'LIGHT.NavLabel'}}">
+        <a class="item" data-tab="basic" data-group="ambience"><i class="fas fa-chart-simple"></i> {{ localize "SCENES.HeaderAmbienceBasic" }}</a>
+        <a class="item" data-tab="environment" data-group="ambience"><i class="fa-regular fa-face-clouds"></i> {{ localize "SCENES.ENVIRONMENT.HeaderLabel" }}</a>
+    </nav>
+
+    <div class="tab" data-group="ambience" data-tab="basic">
+        <div class="form-group">
+            <label>{{localize "SCENES.JournalEntry"}}</label>
+            <select name="journal">
+                {{ selectOptions journals selected=data.journal blank="" valueAttr="id" labelAttr="name"}}
+            </select>
+            <p class="notes">{{ localize "SCENES.JournalEntryHint" }}</p>
+        </div>
+        <div class="form-group">
+            <label>{{ localize "JOURNALENTRYPAGE.Page" }}</label>
+            <div class="form-fields">
+                <select name="journalEntryPage">
+                    {{ selectOptions pages selected=data.journalEntryPage valueAttr="id" labelAttr="name" blank="" }}
+                </select>
+            </div>
+        </div>
+        <hr>
+
+        <div class="form-group">
+            <label>{{localize "SCENES.AudioPlaylist"}}</label>
+            <select name="playlist">
+                {{ selectOptions playlists selected=data.playlist blank="" valueAttr="id" labelAttr="name"}}
+            </select>
+            <p class="notes">{{ localize "SCENES.AudioPlaylistHint" }}</p>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "SCENES.PlaylistSound"}}</label>
+            <select name="playlistSound">
+                {{ selectOptions sounds selected=playlistSound blank="" valueAttr="id" labelAttr="name"}}
+            </select>
+            <p class="notes">{{ localize "SCENES.PlaylistSoundHint" }}</p>
+        </div>
+        <hr>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.WeatherEffect" }}</label>
+            <select name="weather">
+                {{ selectOptions weatherTypes selected=data.weather blank="" }}
+            </select>
+            <p class="notes">{{ localize "SCENES.WeatherEffectHint" }}</p>
+        </div>
+    </div>
+
+    <div class="tab" data-group="ambience" data-tab="environment">
+
+        <h3>{{localize "SCENES.ENVIRONMENT.BaseAmbience"}}</h3>
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Luminosity" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.base.luminosity" value=data.environment.base.luminosity min="-1" max="1" step="0.05" }}
+            </div>
+            <p class="hint">{{ localize "SCENES.ENVIRONMENT.LuminosityHint" }}</p>
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Saturation" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.base.saturation" value=data.environment.base.saturation min="-1" max="1" step="0.05" }}
+            </div>
+            <p class="hint">{{ localize "SCENES.ENVIRONMENT.SaturationHint" }}</p>
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Shadows" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.base.shadows" value=data.environment.base.shadows min="0" max="1" step="0.05" }}
+            </div>
+            <p class="hint">{{ localize "SCENES.ENVIRONMENT.ShadowsHint" }}</p>
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Hue" }}</label>
+            <div class="form-fields">
+                <hue-slider name="environment.base.hue" value="{{data.environment.base.hue}}" {{ disabled baseHueSliderDisabled }}></hue-slider>
+            </div>
+            <p class="hint">{{ localize "SCENES.ENVIRONMENT.HueHint" }}</p>
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Intensity" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.base.intensity" value=data.environment.base.intensity min="0" max="1" step="0.05" }}
+            </div>
+            <p class="hint">{{ localize "SCENES.ENVIRONMENT.IntensityHint" }}</p>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "SCENES.ENVIRONMENT.BlendAmbience"}}</label>
+            <input type="checkbox" name="environment.cycle" {{checked data.environment.cycle}}/>
+            <p class="notes">{{localize "SCENES.ENVIRONMENT.BlendAmbienceHint"}}</p>
+        </div>
+
+        <hr>
+        <h3>{{localize "SCENES.ENVIRONMENT.DarkAmbience"}}</h3>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Luminosity" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.dark.luminosity" value=data.environment.dark.luminosity min="-1" max="1" step="0.05" }}
+            </div>
+            <!-- <p class="hint">{{ localize "SCENES.ENVIRONMENT.LuminosityHint" }}</p> -->
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Saturation" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.dark.saturation" value=data.environment.dark.saturation min="-1" max="1" step="0.05" }}
+            </div>
+            <!-- <p class="hint">{{ localize "SCENES.ENVIRONMENT.SaturationHint" }}</p> -->
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Shadows" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.dark.shadows" value=data.environment.dark.shadows min="0" max="1" step="0.05" }}
+            </div>
+            <!-- <p class="hint">{{ localize "SCENES.ENVIRONMENT.ShadowsHint" }}</p> -->
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Hue" }}</label>
+            <div class="form-fields">
+                <hue-slider name="environment.dark.hue" value="{{data.environment.dark.hue}}" {{ disabled darknessHueSliderDisabled }}></hue-slider>
+            </div>
+            <!-- <p class="hint">{{ localize "SCENES.ENVIRONMENT.HueHint" }}</p> -->
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "SCENES.ENVIRONMENT.Intensity" }}</label>
+            <div class="form-fields">
+                {{ rangePicker name="environment.dark.intensity" value=data.environment.dark.intensity min="0" max="1" step="0.05" }}
+            </div>
+            <!-- <p class="hint">{{ localize "SCENES.ENVIRONMENT.IntensityHint" }}</p> -->
+        </div>
+
+    </div>
+
+</div>

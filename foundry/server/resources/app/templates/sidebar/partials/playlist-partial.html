@@ -1,0 +1,32 @@
+<li class="directory-item document {{@root.documentCls}} flexrow {{this.css}}" data-entry-id="{{this._id}}" data-document-id="{{this._id}}">
+    <header class="playlist-header flexrow">
+        <h4 class="entry-name playlist-name">{{this.name}} <i class="collapse fa fa-angle-{{#if this.expanded}}down{{else}}up{{/if}}"></i></h4>
+        <div class="sound-controls playlist-controls flexrow">
+            {{#unless this.playing}}
+            {{#if this.isOwner}}
+            <a class="sound-control fa-solid fa-plus" data-action="sound-create"
+               data-tooltip="PLAYLIST.SoundCreate"></a>
+            {{/if}}
+            {{/unless}}
+            <a class="sound-control {{#unless this.isOwner}}disabled{{/unless}} {{this.modeIcon}}"
+               data-action="playlist-mode" data-tooltip="{{this.modeTooltip}}"></a>
+
+            {{#if this.playing}}
+            <a class="sound-control fa-solid fa-backward {{this.controlCSS}}" data-action="playlist-backward"
+               data-tooltip="PLAYLIST.Backward"></a>
+            <a class="sound-control fa-solid fa-forward {{this.controlCSS}}" data-action="playlist-forward"
+               data-tooltip="PLAYLIST.Forward"></a>
+            <a class="sound-control fa-solid fa-square {{this.controlCSS}}" data-action="playlist-stop"
+               data-tooltip="PLAYLIST.Stop"></a>
+            {{else}}
+            <a class="sound-control fa-solid fa-play {{this.controlCSS}}" data-action="playlist-play"
+               data-tooltip="PLAYLIST.Play"></a>
+            {{/if}}
+        </div>
+    </header>
+    <ol class="playlist-sounds">
+    {{#each this.sounds as |sound|}}
+        {{> soundPartial sound=sound playback=false}}
+    {{/each}}
+    </ol>
+</li>

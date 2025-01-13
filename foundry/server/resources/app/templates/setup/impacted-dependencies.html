@@ -1,0 +1,65 @@
+{{#*inline "dependencyPartial"}}
+<div class="form-group">
+    <label class="checkbox">
+        <input type="checkbox" name="{{module.id}}" {{ checked this.checked }} {{ disabled required }}
+               data-tooltip="{{ module.note }}">
+        {{ module.title }}
+    </label>
+</div>
+{{#if this.reason}}<p class="notes">{{this.reason}}</p>{{/if}}
+{{/inline}}
+
+<form>
+
+    {{!-- Required Dependencies --}}
+    {{#if required.length}}
+
+    <p>{{ localize "MODMANAGE.DepRequiredEnable" }}</p>
+
+    {{#each required}}
+        {{> dependencyPartial}}
+    {{/each}}
+
+    {{/if}}
+
+    {{!-- Optional Dependencies --}}
+    {{#if optional.length}}
+
+    <p>
+        {{#if enabling}}
+            {{ localize "MODMANAGE.DepOptionalEnable" }}
+        {{else}}
+            {{ localize "MODMANAGE.DepDisable" }}
+        {{/if}}
+    </p>
+
+    {{#each optional}}
+        {{> dependencyPartial}}
+    {{/each}}
+
+    {{/if}}
+
+    {{#if (and optional.length subtypes)}}<hr>{{/if}}
+
+    {{!-- Module-Provided Sub-Types --}}
+    {{#if subtypes}}
+    <p>{{ localize "MODMANAGE.UnavailableDocuments" }}</p>
+    <p>{{{ subtypes }}}</p>
+    {{/if}}
+
+    <footer class="sheet-footer flexrow">
+        <button type="submit">
+            <i class="fas fa-check"></i>
+            {{#if enabling}}
+                {{ localize "Activate" }}
+            {{else}}
+                {{ localize "Deactivate" }}
+            {{/if}}
+        </button>
+        <button type="button" data-action="cancel">
+            <i class="fas fa-times"></i>
+            {{ localize "Cancel" }}
+        </button>
+    </footer>
+
+</form>

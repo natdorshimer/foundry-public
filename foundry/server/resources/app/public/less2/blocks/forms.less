@@ -1,0 +1,179 @@
+.standard-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+
+  /** Tabs */
+  .tab {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    &.active {
+      display: flex;
+    }
+  }
+
+  /** Fieldsets */
+  fieldset {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    border-color: var(--color-fieldset-border);
+    border-radius: 8px;
+    legend {
+      font-size: var(--font-size-15);
+      font-weight: bold;
+    }
+    &:disabled {
+      .form-group {
+        pointer-events: none;
+      }
+    }
+  }
+  fieldset.input-grid {
+    --grid-cols: 2;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: .5rem;
+  }
+
+  /** Buttons */
+  button {
+    height: var(--input-height);
+  }
+
+  /* Icon Inputs */
+  label.icon:has(> input) {
+    background: var(--input-background-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    padding: .125rem .5rem;
+
+    &:has(> input:disabled) { border: none; }
+    &:focus-within { outline: 2px solid var(--input-focus-outline-color); }
+
+    > input {
+      flex: 1;
+      border: none;
+      border-radius: 0;
+      width: unset;
+      padding: 0;
+      background: none;
+
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    > i { flex: none; }
+  }
+
+  /** Form Groups */
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    gap: 0.5rem;
+
+    // Flex form inputs
+    > * {
+      flex: 2;
+    }
+    > input[type=checkbox] {
+      flex: none;
+    }
+
+    // Labels
+    > label {
+      flex: 1;
+      color: var(--color-form-label);
+      font-weight: bold;
+      line-height: var(--input-height);
+      > i {
+        margin-right: 0.25rem;
+      }
+      > input {
+        font-weight: initial;
+      }
+    }
+
+    // Icon-Only Labels
+    > label.icon {
+      flex: 0 0 1rem;
+      > i {
+        margin: 0;
+      }
+    }
+
+    // Stacked form groups, label is on its own line
+    &.stacked {
+      > * {
+        flex: 0 0 100%;
+      }
+    }
+
+    // Form group hover behavior
+    &:hover {
+      > label {
+        color: var(--color-form-label-hover);
+      }
+    }
+  }
+
+  .form-fields {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    > * {
+      flex: 1;
+    }
+    > input[type="checkbox"],
+    > label {
+      flex: none;
+    }
+    &.flexcol {
+      flex-direction: column;
+    }
+  }
+
+  /** Hint Text */
+  .hint {
+    margin: 0;
+    font-size: var(--font-size-14);
+    color: var(--color-form-hint);
+  }
+  .form-group .hint {
+    flex: 0 0 100%;
+  }
+  .form-group:hover .hint {
+    color: var(--color-form-hint-hover);
+  }
+
+  /** Form Footers */
+  .form-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    > button,
+    a.button {
+      flex: 1;
+      height: calc(1.25 * var(--input-height));
+      min-width: 180px;
+    }
+  }
+}
