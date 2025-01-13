@@ -1,4 +1,4 @@
-foundry/**/license.json
-foundry/**/Logs
-foundry/**/Data/*
+foundry/instances/**/license.json
+foundry/instances/**/Logs
+foundry/instances/**/Data/*
 foundryvtt
