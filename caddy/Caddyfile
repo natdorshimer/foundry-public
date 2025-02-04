@@ -1,0 +1,12 @@
+natdorshimer.com {
+    encode zstd gzip
+
+    root * /etc/caddy/html
+    file_server
+
+    @novaserai path /novaserai /novaserai/*
+    reverse_proxy @novaserai foundry:30000
+
+    @exandria path /exandria /exandria/*
+    reverse_proxy @exandria foundry:30001
+}

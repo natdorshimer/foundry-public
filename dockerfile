@@ -1,14 +1,11 @@
 FROM node:23 AS node-builder
-FROM nginx:latest
-
-# Install Node.js 
-COPY --from=node-builder /usr/local /usr/local
-
-COPY nginx /etc/nginx/
 
 COPY startup.sh /app/startup.sh
+RUN ls -la /app
 
 # Server
-EXPOSE 80
+EXPOSE 30000
+EXPOSE 30001
 
+RUN ls -la /app
 CMD ["/app/startup.sh"]

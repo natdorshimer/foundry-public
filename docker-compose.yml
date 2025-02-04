@@ -1,10 +1,24 @@
 services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/html:/etc/caddy/html
+      - ./caddy/data:/data
+      - ./caddy/config:/config
   foundry:
     build:
       context: . 
       dockerfile: dockerfile
+    container_name: foundry
     ports:
-      - "80:80"
+      - "30000:30000"
+      - "30001:30001"
     volumes:
       - ./foundry:/app/foundry
     restart: unless-stopped

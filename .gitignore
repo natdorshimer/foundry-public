@@ -2,3 +2,6 @@ foundry/instances/**/license.json
 foundry/instances/**/Logs
 foundry/instances/**/Data/*
 foundryvtt
+scripts/
+caddy/config
+caddy/data
